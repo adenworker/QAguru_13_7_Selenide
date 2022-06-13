@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
 public class CustomDragAndDrop {
@@ -38,5 +39,7 @@ public class CustomDragAndDrop {
         /**Сработал только метод из коробки. Если я зарылся в селенид в правильном направлении, то в dragAndDropTo
          *используется селениумное перемещение мыши. Возможно, селенидовое на этом сайте не работает.*/
         $("#column-a").dragAndDropTo("#column-b");
+
+        $("#column-a").shouldHave(text("B"));
     }
 }
